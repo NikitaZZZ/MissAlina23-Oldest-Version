@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/avatar.png">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <!-- <link rel="stylesheet" href="package/src/sweetalert2.scss"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>Симулятор MissAlina23</title>
+</head>
+<body>
+    <div class="container" id="index-div">
+        <div class="row" id="Center-div">
+            <div class="col-sm" id="Div1">
+                <p id="P1-Text1">
+                    <i id="Jour">День 1:</i>
+                    <i id="Time">08:00</i>
+                </p>
+                <p id="P2-Text1">
+                    <i id="Task">Сделать завтрак</i>
+                </p>
+            </div>
+            <div class="col-sm" id="Div2">
+                <p id="P1-Text2">
+                    <i id="Thoughts">Ох, наверное пора вставать и сделать завтрак.</i>
+                </p>
+                <hr>
+                <button id="Butt-Text2" class="btn btn-dark" onclick="check_var=true">Сделать завтрак</button>
+            </div>
+            <div class="col-sm" id="Div3">
+                <p id="P1-Text3">
+                    <i id="Text-Task">Задания</i>
+                </p>
+                <p id="List-Text1">
+                    <i id="Task1-Text3">10:20 → Позавтракать</i>
+                </p>
+                <p id="List-Text3">
+                    <i id="Task2-Text3">11:10 → Серф в инете</i>
+                </p>
+                <p id="List-Text3">
+                    <i id="Task3-Text3">13:10 → Обед</i>
+                </p>
+                <p id="List-Text3">
+                    <i id="Task4-Text3">15:10 → Уборка и Готовка</i>
+                </p>
+                <p id="List-Text3">
+                    <i id="Task5-Text3">18:10 → Ужин и Подготовка</i>
+                </p>
+                <p id="List-Text3">
+                    <i id="Task6-Text3">19:10 → Начать Стрим</i>
+                </p>
+                <p id="List-Text3">
+                    <i id="Task7-Text3">02:10 → Лечь спать</i>
+                </p>
+            </div>
+            <div class="col-sm" id="Div4">
+                <p id="P1-Text4">Статистика</p>
+                <p id="health"></p>
+                <p id="food"></p>
+                <p id="water"></p>
+                <p id="energy"></p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm" id="Div5">
+                    <p id="ToDo-Text1">
+                        <i id="Todo-Text">Действия: </i>
+                    </p>
+                    <button class="btn btn-dark" onclick="stat_plus()" id="to-eat">Пополнить стату</button>
+                    <button type="button" data-toggle="modal" data-target="#modal-up" class="btn btn-dark" id="to-up">Прокачка</button>
+                    <br>
+                    <button type="button" onclick='true_var=true;' data-toggle="modal" id='btn-stream' data-target="#modal-stream" class="btn btn-dark">Открыть окно стрима</button>
+                    <p id="Games-Text1">
+                        <i id="Games-Text">Мини-Игры: </i>
+                    </p>
+                    <button type="button" data-toggle="modal" data-target="#modal-roulette" class="btn btn-dark" id="roulette">Рулетка</button>
+                    <button type="button" data-toggle="modal" data-target="#modal-guessHero" class="btn btn-dark" id="guessHero">Угадай героя</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-up">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="up-title">Прокачка ресурсов</h4>
+                    <p class="lead" id="money"></p>
+                </div>
+                <div class="modal-body">
+                    <p class="lead" id="name">Процессор - </p>
+                    <p class="lead" id="level"></p>
+                    <p class="lead" id="cost"></p>
+                    <button class="btn btn-outline-success" id="up1" onclick="cpu_up_level()">+</button>
+                    <br><br>
+                    <p class="lead" id="name_2">Видеокарта - </p>
+                    <p class="lead" id="level_2"></p>
+                    <p class="lead" id="cost_2"></p>
+                    <button class="btn btn-outline-success" id="up2" onclick="gpu_up_level()">+</button>
+                    <br><br>
+                    <p class="lead" id="name_3">Оперативная Память - </p>
+                    <p class="lead" id="level_3"></p>
+                    <p class="lead" id="cost_3"></p>
+                    <button class="btn btn-outline-success" id="up3" onclick="ram_up_level()">+</button>
+                    <br><br>
+                    <p class="lead" id="name_4">Монитор - </p>
+                    <p class="lead" id="level_4"></p>
+                    <p class="lead" id="cost_4"></p>
+                    <button class="btn btn-outline-success" id="up4" onclick="monitor_up_level()">+</button>
+                    <br><br>
+                    <p class="lead" id="name_5">Веб-камера - </p>
+                    <p class="lead" id="level_5"></p>
+                    <p class="lead" id="cost_5"></p>
+                    <button class="btn btn-outline-success" id="up5" onclick="web_cam_up_level()">+</button>
+                    <br><br>
+                    <p class="lead" id="name_6">Микрофон - </p>
+                    <p class="lead" id="level_6"></p>
+                    <p class="lead" id="cost_6"></p>
+                    <button class="btn btn-outline-success" id="up6" onclick="microphone_up_level()">+</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-roulette">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Рулетки</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p class="lead">Рулетка предметов</p>
+                                <button id="btn-roulette-items" onclick="roulette_items()" class="btn btn-outline-dark">Крутить рулетку</button>
+                                <p class="lead" id="result-items">Результат: </p>
+                                <img src="img/items.png" class="img-fluid" alt="items-dota">
+                            </div>
+                            <div class="col-sm">
+                                <p class="lead">Рулетка героев</p>
+                                <button id="btn-roulette-heroes" onclick="roulette_heroes()" class="btn btn-outline-dark">Крутить рулетку</button>
+                                <p class="lead" id="result-heroes">Результат: </p>
+                                <img src="img/heroes.png" class="img-fluid" alt="heroes-dota">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-guessHero">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Угадай героя</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <img src="" class="img-fluid" id="hero" alt="hero">
+                    </div>
+                    <div class="container" id="container-gH">
+                        <div class="row row-cols-2">
+                            <button class="btn btn-outline-dark" onclick="checkHero(1)" id="btn-answer1"></button>
+                            <button class="btn btn-outline-dark" onclick="checkHero(2)" id="btn-answer2"></button>
+                            <button class="btn btn-outline-dark" onclick="checkHero(3)" id="btn-answer3"></button>
+                            <button class="btn btn-outline-dark" onclick="checkHero(4)" id="btn-answer4"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-stream">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content" id="stream-body">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm" id="roulette-items">
+                                <p class="lead" id="title-items">Рулетка предметов</p>
+                                <button id="btn-roulette-items" onclick="roulette_items2()" class="btn btn-outline-success">Крутить рулетку</button>
+                                <p class="lead" id="result-items1">Результат: </p>
+                                <img src="img/items.png" class="img-fluid" alt="items-dota">
+                            </div>
+                            <div class="col-sm" id="roulette-heroes">
+                                <p class="lead" id="title-heroes">Рулетка героев</p>
+                                <button id="btn-roulette-heroes" onclick="roulette_heroes2()" class="btn btn-outline-success">Крутить рулетку</button>
+                                <p class="lead" id="result-heroes2">Результат: </p>
+                                <img src="img/heroes.png" class="img-fluid" alt="heroes-dota">
+                            </div>
+                            <div class="col-sm">
+                                <p class="lead" id="p-stream-money">Монет всего</p>
+                                <p class="lead" id="stream-money"></p>
+                                <p class="lead" id="title-followers">Фолловеры</p>
+                                <p class="lead" id="followers"></p>
+                                <p class="lead" id="title-watchers">Зрители</p>
+                                <p class="lead" id="watchers"></p>
+                                <p class="lead" id="title-donat">Донат</p>
+                                <p class="lead" id="donat"></p>
+                                <p class="lead" id="donat-all">Всего: </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-dark" id="cls" onclick="true_var=false;" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-console" class="console-modal">
+        <div>
+            <a href="#" title="Закрыть" class="close">X</a>
+            <label><input type="text" id="input-command" placeholder="Введите команду"></label>
+            <button class="btn btn-outline-success" id="run-command" onclick="run()">Выполнить</button>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success">Для того чтобы выполнить команду, введите ее как написано ниже и нажмите на кнопку "Выполнить".</li>
+                <li class="list-group-item" id="stream-li">/show-stream-btn - Показать кнопку стрима</li>
+                <li class="list-group-item" id="money-li">/money - Увелечение монет до 999999</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="sweetalert2.min.js"></script>
+    <script src="https://kit.fontawesome.com/373834e38f.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="js/resources.js"></script>
+    <script src="js/roulette.js"></script>
+    <script src="js/guessHero.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/console.js"></script>
+    <script src="js/stream.js"></script>
+</body>
+</html>
